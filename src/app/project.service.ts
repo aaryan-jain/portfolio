@@ -129,10 +129,12 @@ export class ProjectService {
           'https://blog.knoldus.com/wp-content/uploads/2020/09/CleanCode.jpg',
         additionalInfo: {
           isLive: false,
-          buttons: [{
-            label: 'Problem Statement',
-            link: 'https://kata-log.rocks/banking-kata'
-          }],
+          buttons: [
+            {
+              label: 'Problem Statement',
+              link: 'https://kata-log.rocks/banking-kata',
+            },
+          ],
         },
       },
       {
@@ -231,8 +233,39 @@ export class ProjectService {
         githubLink: 'https://github.com/aaryan-jain/studio-static',
         image:
           'https://www.timeshighereducation.com/student/sites/default/files/styles/default/public/why-study-architecture_0.jpg?itok=cgMcrCfY',
-        additionalInfo: {
-        },
+        additionalInfo: {},
+      },
+      {
+        title: 'mana-lee',
+        description:
+          'This is a complete FE project I worked on to get myself acquainted with tailwind and to give something to my girlfriend as well!',
+        tags: [
+          {
+            tagName: 'ANGULAR',
+            tagColor: 'brown',
+          },
+          {
+            tagName: 'HTML',
+            tagColor: 'brown',
+          },
+          {
+            tagName: 'CSS',
+            tagColor: 'brown',
+          },
+          {
+            tagName: 'TYPESCRIPT',
+            tagColor: 'brown',
+          },
+          {
+            tagName: 'TAILWIND',
+            tagColor: 'brown',
+          },
+        ],
+        liveLink: 'https://mana-lee.web.app/',
+        githubLink: 'https://github.com/aaryan-jain',
+        image:
+          'https://d2j6dbq0eux0bg.cloudfront.net/default-store/giftcards/gift_card_003_1500px.jpg',
+        additionalInfo: {},
       },
     ]);
   }
