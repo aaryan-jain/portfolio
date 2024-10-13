@@ -30,7 +30,7 @@ export class ConsoleWindowComponent implements OnInit {
       output: [
         {
           data: 'aaryan.vijayraj@gmail.com',
-          link: 'aaryan.vijayraj@gmail.com',
+          link: 'mailto:aaryan.vijayraj@gmail.com',
         },
         {
           data: 'Linkedin',

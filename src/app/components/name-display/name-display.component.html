@@ -1,4 +1,4 @@
-<div class="w-1/2 mx-auto text-8xl flex">
+<div class="w-full md:text-8xl sm:max-md:text-5xl flex">
   <!-- <div
     class="text-7xl inline-block border-r-2 border-black overflow-hidden whitespace-nowrap animate-typing animate-blink"
   >
@@ -6,12 +6,12 @@
   </div> -->
   <div>> &nbsp;</div>
   <div class="inline-block">
-    <span class="typing-effect" [style.--char-count]="name.length">
+    <span class="typing-effect sm:max-md:border-r-8" [style.--char-count]="name.length">
       {{ name }}
     </span>
   </div>
 </div>
 
-<div class="w-1/2 mt-10 text-2xl text-gray-700 mx-auto">
+<div class="w-full md:mt-10 sm:max-md:mt-2 sm:max-md:text-center sm:max-md:text-lg text-2xl text-gray-700 ">
   {{description}}
 </div>

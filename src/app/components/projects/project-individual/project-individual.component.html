@@ -1,0 +1,60 @@
+<div class="md:min-h-96 bg-slate-100 rounded-md mat-elevation-z8 flex sm:max-md:flex-col mb-10"
+    [ngClass]="{ 'md:flex-row' : index()%2 === 0, 'md:flex-row-reverse': index()%2 !== 0 }">
+    <div class="md:w-1/3  border-gray-600"
+        [ngClass]="{'md:border-r-8 sm:max-md:border-b-8': index()%2 === 0, 'md:border-l-8 sm:max-md:border-b-8': index()%2 !==0}">
+        <img [src]="project().image" alt="project.name" class="w-full h-full object-cover" />
+
+    </div>
+    <div class="md:w-2/3 p-4  text-xl flex flex-col">
+        <h1 class="text-3xl sm:max-md:text-2xl font-semibold text-center">{{ project().title }}</h1>
+        <p class="text-gray-500 text-center sm:max-md:text-lg mt-6">{{ project().description }}</p>
+
+        <div class="flex flex-wrap mt-auto mx-auto mb-6">
+            @for (item of project().tags; track $index) {
+            <span class="text-sm sm:max-md:text-xs text-gray-500 border p-2 rounded-sm mt-4 mr-4" [style.border-color]="item.tagColor">{{
+                item.tagName }}</span>
+            }
+        </div>
+
+        <!-- buttons -->
+        <div class="flex sm:max-md:flex-col sm:max-md:w-3/4 md:space-x-4 mt-auto mx-auto">
+            <a [href]="project().githubLink" target="_blank"
+                class="sm:max-md:w-full sm:max-md:text-lg p-4 text-gray-200 hover:text-black flex justify-evenly items-center bg-lime-800 hover:bg-lime-400 rounded-lg">
+                <svg width="24px" height="24px" viewBox="0 -0.5 24 24" id="meteor-icon-kit__regular-github" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.2047 0.00001C6.56031 -0.005731 1.74628 4.08615 0.842541 9.6577C-0.061195 15.2293 3.2126 20.6331 8.56941 22.4118C9.14823 22.5177 9.35294 22.1577 9.35294 21.8541C9.35294 21.5506 9.35294 20.8588 9.35294 19.8988C6.14117 20.5977 5.46353 18.3529 5.46353 18.3529C5.25046 17.6572 4.79779 17.0595 4.18588 16.6659C3.14823 15.96 4.27059 15.96 4.27059 15.96C5.00761 16.0641 5.65578 16.5014 6.02823 17.1459C6.34368 17.7179 6.87393 18.1406 7.50179 18.3208C8.12965 18.5009 8.8034 18.4236 9.37411 18.1059C9.41842 17.5252 9.66876 16.9794 10.08 16.5671C7.5247 16.2777 4.84235 15.2894 4.84235 10.92C4.82481 9.7786 5.24688 8.67412 6.02117 7.8353C5.67632 6.84285 5.71662 5.7571 6.13412 4.79295C6.13412 4.79295 7.10117 4.48236 9.29647 5.97177C11.1816 5.45419 13.1713 5.45419 15.0565 5.97177C17.2518 4.48236 18.2118 4.79295 18.2118 4.79295C18.6351 5.74689 18.6854 6.82486 18.3529 7.81412C19.1272 8.65294 19.5493 9.7574 19.5318 10.8988C19.5318 15.3177 16.8424 16.2847 14.28 16.5459C14.8359 17.1047 15.1218 17.8774 15.0635 18.6635C15.0635 20.2024 15.0635 21.4447 15.0635 21.8188C15.0635 22.1929 15.2682 22.4824 15.8541 22.3694C21.1473 20.5447 24.3569 15.1728 23.4554 9.6469C22.5539 4.1211 17.8034 0.04779 12.2047 0.00001z"
+                        fill="#758CA3" />
+                </svg>
+                &nbsp;GitHub Link
+            </a>
+            @if (project().liveLink.length > 0) {
+            <a [href]="project().liveLink" target="_blank"
+                class="sm:max-md:w-full sm:max-md:text-lg sm:max-md:mt-2 p-4 text-gray-200 hover:text-black flex justify-evenly items-center bg-sky-800 hover:bg-sky-400 rounded-lg">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" id="meteor-icon-kit__regular-external-link"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M22 3.41421L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L20.5858 2H18C17.4477 2 17 1.55228 17 1C17 0.447715 17.4477 0 18 0H23C23.5523 0 24 0.447715 24 1V6C24 6.55228 23.5523 7 23 7C22.4477 7 22 6.55228 22 6V3.41421ZM12.9838 3C13.536 3 13.9838 3.44772 13.9838 4C13.9838 4.55228 13.536 5 12.9838 5H3C2.44772 5 2 5.44772 2 6V21C2 21.5523 2.44772 22 3 22H18.0011C18.5534 22 19.0011 21.5523 19.0011 20.9973L18.9734 11.0028C18.9719 10.4505 19.4184 10.0015 19.9706 10C20.5229 9.99847 20.9719 10.4449 20.9734 10.9972L21.0011 21C21.0011 22.6569 19.658 24 18.0011 24H3C1.34315 24 0 22.6569 0 21V6C0 4.34315 1.34315 3 3 3H12.9838Z"
+                        fill="#758CA3" />
+                </svg>
+                &nbsp; Live demo Link
+            </a>
+            }
+
+            @if(project().additionalInfo?.buttons) {
+            @for(button of project().additionalInfo.buttons; track $index) {
+            <a [href]="button.link" target="_blank"
+                class="sm:max-md:w-full sm:max-md:text-lg sm:max-md:mt-2 p-4 text-gray-200 hover:text-black flex justify-evenly items-center bg-sky-800 hover:bg-sky-400 rounded-lg">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" id="meteor-icon-kit__regular-external-link"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M22 3.41421L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L20.5858 2H18C17.4477 2 17 1.55228 17 1C17 0.447715 17.4477 0 18 0H23C23.5523 0 24 0.447715 24 1V6C24 6.55228 23.5523 7 23 7C22.4477 7 22 6.55228 22 6V3.41421ZM12.9838 3C13.536 3 13.9838 3.44772 13.9838 4C13.9838 4.55228 13.536 5 12.9838 5H3C2.44772 5 2 5.44772 2 6V21C2 21.5523 2.44772 22 3 22H18.0011C18.5534 22 19.0011 21.5523 19.0011 20.9973L18.9734 11.0028C18.9719 10.4505 19.4184 10.0015 19.9706 10C20.5229 9.99847 20.9719 10.4449 20.9734 10.9972L21.0011 21C21.0011 22.6569 19.658 24 18.0011 24H3C1.34315 24 0 22.6569 0 21V6C0 4.34315 1.34315 3 3 3H12.9838Z"
+                        fill="#758CA3" />
+                </svg>
+                {{ ' ' + button.label }}
+            </a>
+            }
+            }
+        </div>
+    </div>
+</div>

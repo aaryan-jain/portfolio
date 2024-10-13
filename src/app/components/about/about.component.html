@@ -1,0 +1,54 @@
+<div class="mt-10 px-6">
+    <div class="max-w-4xl mx-auto bg-slate-100 p-8 rounded-lg shadow-lg">
+        <div class="mb-8 flex sm:max-md:flex-col-reverse justify-between ">
+            <div class="md:w-3/4">
+                <h1 class="text-4xl font-bold text-gray-800">{{bio.name}}</h1>
+                <p class="text-lg text-gray-600">{{bio.designation}}</p>
+                <p class="text-lg text-gray-600">{{bio.location}}</p>
+                <div class="flex sm:max-md:flex-col md:mt-24 sm:max-md:mt-10 md:space-x-4 text-gray-600">
+                    <a href="tel:{{bio.phone}}" class="hover:text-blue-500">
+                        {{bio.phone}}
+                    </a>
+                    <a href="mailto:{{bio.email}}" class="hover:text-blue-500">
+                        {{bio.email}}
+                    </a>
+                    <a href="{{bio.linkedin}}" target="_blank" class="hover:text-blue-500">
+                        LinkedIn
+                    </a>
+                    <a href="{{bio.github}}" target="_blank" class="hover:text-blue-500">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/4 md:h-56">
+                <img src="{{bio.personalImage}}" alt="personal image" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+
+        <hr class="my-8 border-gray-300" />
+
+        <div class="space-y-6">
+            <p class="text-lg text-gray-700">
+                {{bio.coverLetter}}
+            </p>
+        </div>
+
+        <hr class="my-8 border-gray-300" />
+
+        <div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Work Experience</h2>
+
+            @for (item of bio.workexperiences; track $index) {
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800">{{item.company}}, {{item.time}}</h3>
+                    <p class="text-gray-600 italic">{{item.designation}}</p>
+                    <p class="text-gray-700 mt-2">
+                        {{item.role}}
+                    </p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.app-wrapper h1 {
+    text-align: center;
+    color: #3f51b5;
+}
+
+.demo-wrapper {
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.animation-wrapper {
+    position: relative;
+    width: 60px;
+    border-radius: 2px;
+    margin: 40px auto;
+}
+
+.heart {        
+    position: relative;
+    width: 60px;
+    height: 55px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.heart > div {        
+    background: rgba(213, 9, 60, 1); 
+    height: 36px;
+    width: 36px;        
+    position: absolute;        
+} 
+
+.cyc1 {
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+
+.cyc2 {
+    top: 0;
+    left: 24px;
+    border-radius: 50%;
+}
+
+.ret {
+    transform: rotate(-45deg);
+    top: 12px;
+    left: 12px;
+}

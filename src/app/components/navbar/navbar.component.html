@@ -1,0 +1,38 @@
+<nav class="md:p-4 sm:max-md:py-4 sm:max-md:px-2">
+    <div class="md:container md:mx-auto sm:max-md:w-full flex justify-between items-center text-2xl sm:max-md:text-lg">
+        <a href="/" class="text-gray-800 font-semibold">My Portfolio</a>
+
+        <!-- Desktop Links -->
+        <div class="sm:max-md:hidden space-x-4">
+            <a href="/about" class="text-gray-800 hover:text-black hover:scale-125">About</a>
+            <a href="#projects" class="text-gray-800 hover:text-black">Projects</a>
+            <a href="#contact" class="text-gray-800 hover:text-black">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="text-gray-800 md:hidden focus:outline-none sm:max-md:text-lg" (click)="toggleMenu()">
+            Menu
+        </button>
+    </div>
+</nav>
+
+<!-- Translucent Overlay (hidden when the menu is closed) -->
+<div [ngClass]="{
+    'opacity-50 pointer-events-auto': menuOpen,
+    'opacity-0 pointer-events-none': !menuOpen
+  }" class="fixed inset-0 bg-black transition-opacity duration-300 z-40" (click)="toggleMenu()"></div>
+
+<!-- Side Menu (Initially hidden, slides in from the right) -->
+<div [ngClass]="{
+    'translate-x-0': menuOpen,
+    'translate-x-full': !menuOpen
+  }" class="fixed top-0 right-0 h-full w-48 bg-gray-800 z-50 transform transition-transform duration-300">
+    <div class="text-white p-4">
+        <button class="text-white font-bold mb-4" (click)="toggleMenu()">
+            Close
+        </button>
+        <a href="/about" class="block py-2 text-gray-300 hover:text-white hover:scale-105">About</a>
+        <a href="#projects" class="block py-2 text-gray-300 hover:text-white hover:scale-105">Projects</a>
+        <a href="#contact" class="block py-2 text-gray-300 hover:text-white hover:scale-105">Contact</a>
+    </div>
+</div>
